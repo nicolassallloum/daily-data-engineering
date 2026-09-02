@@ -1,0 +1,107 @@
+[
+  {
+    "topic": "PostgreSQL WAL",
+    "category": "PostgreSQL",
+    "focus": "Understand how Write-Ahead Logging protects PostgreSQL durability.",
+    "practice": "Review wal_level, WAL records, checkpoints, and crash recovery.",
+    "key_point": "PostgreSQL records changes in WAL before modified data pages are considered safely persisted."
+  },
+  {
+    "topic": "PostgreSQL EXPLAIN ANALYZE",
+    "category": "PostgreSQL",
+    "focus": "Analyze actual query execution behavior.",
+    "practice": "Compare estimated rows against actual rows and inspect expensive plan nodes.",
+    "key_point": "EXPLAIN ANALYZE executes the query and reports actual execution statistics."
+  },
+  {
+    "topic": "PostgreSQL Index Selectivity",
+    "category": "PostgreSQL",
+    "focus": "Understand when indexes provide useful filtering.",
+    "practice": "Compare indexes on high-cardinality and low-cardinality columns.",
+    "key_point": "An index is generally more useful when predicates substantially reduce the rows that must be visited."
+  },
+  {
+    "topic": "SQL Window Functions",
+    "category": "SQL",
+    "focus": "Use analytical functions without collapsing result rows.",
+    "practice": "Practice ROW_NUMBER, RANK, DENSE_RANK, LAG and LEAD.",
+    "key_point": "Window functions perform calculations across related rows while preserving individual rows."
+  },
+  {
+    "topic": "SQL Common Table Expressions",
+    "category": "SQL",
+    "focus": "Build readable multi-stage SQL transformations.",
+    "practice": "Rewrite a complex nested query using WITH clauses.",
+    "key_point": "CTEs can make multi-step query logic easier to understand and maintain."
+  },
+  {
+    "topic": "Python ETL Validation",
+    "category": "Python",
+    "focus": "Validate datasets before and after transformation.",
+    "practice": "Check null counts, row counts, duplicates and expected schema.",
+    "key_point": "Validation should occur at multiple stages of a data pipeline."
+  },
+  {
+    "topic": "Apache Kafka Partitions",
+    "category": "Kafka",
+    "focus": "Understand Kafka scalability and ordering.",
+    "practice": "Review keys, partitions, consumers and consumer groups.",
+    "key_point": "Ordering is guaranteed inside an individual Kafka partition, not globally across all partitions."
+  },
+  {
+    "topic": "Apache Airflow DAG Design",
+    "category": "Airflow",
+    "focus": "Design maintainable workflow dependencies.",
+    "practice": "Separate orchestration logic from transformation logic.",
+    "key_point": "Airflow should orchestrate work rather than contain large amounts of business-processing code."
+  },
+  {
+    "topic": "dbt Data Testing",
+    "category": "dbt",
+    "focus": "Introduce automated data-quality validation.",
+    "practice": "Review unique, not_null, relationships and accepted_values tests.",
+    "key_point": "Data tests allow assumptions about analytical datasets to be validated automatically."
+  },
+  {
+    "topic": "Snowflake Micro-partitions",
+    "category": "Snowflake",
+    "focus": "Understand Snowflake physical data organization.",
+    "practice": "Review pruning and clustering behavior.",
+    "key_point": "Snowflake automatically stores table data in micro-partitions and uses metadata for pruning."
+  },
+  {
+    "topic": "Oracle PL/SQL Procedures",
+    "category": "Oracle",
+    "focus": "Structure reusable database business logic.",
+    "practice": "Create a procedure using IN and OUT parameters.",
+    "key_point": "Stored procedures provide reusable server-side program units."
+  },
+  {
+    "topic": "Database Normalization",
+    "category": "Data Modeling",
+    "focus": "Reduce unnecessary duplication and modification anomalies.",
+    "practice": "Review 1NF, 2NF and 3NF.",
+    "key_point": "Normalization organizes relational structures around dependencies between attributes."
+  },
+  {
+    "topic": "OLTP vs OLAP",
+    "category": "Architecture",
+    "focus": "Distinguish operational and analytical workloads.",
+    "practice": "Compare query patterns, schemas, concurrency and latency requirements.",
+    "key_point": "OLTP systems optimize transactional operations while OLAP systems optimize analytical workloads."
+  },
+  {
+    "topic": "Data Lineage",
+    "category": "Data Governance",
+    "focus": "Track the movement and transformation of data.",
+    "practice": "Document source, transformations and target for one dataset.",
+    "key_point": "Lineage helps explain where data originated and how it changed."
+  },
+  {
+    "topic": "Change Data Capture",
+    "category": "Data Engineering",
+    "focus": "Capture incremental database changes.",
+    "practice": "Compare log-based CDC against trigger-based CDC.",
+    "key_point": "CDC reduces the need to repeatedly reload entire source datasets."
+  }
+]
