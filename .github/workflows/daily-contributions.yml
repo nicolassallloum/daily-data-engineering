@@ -1,0 +1,66 @@
+name: Daily Engineering Contributions
+
+on:
+  schedule:
+    - cron: "23 9 * * *"
+      timezone: "Asia/Beirut"
+
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  daily-contributions:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Setup Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Configure Git identity
+        env:
+          COMMIT_NAME: ${{ vars.COMMIT_NAME }}
+          COMMIT_EMAIL: ${{ vars.COMMIT_EMAIL }}
+        run: |
+          if [ -z "$COMMIT_NAME" ]; then
+            echo "COMMIT_NAME repository variable is missing."
+            exit 1
+          fi
+
+          if [ -z "$COMMIT_EMAIL" ]; then
+            echo "COMMIT_EMAIL repository variable is missing."
+            exit 1
+          fi
+
+          git config user.name "$COMMIT_NAME"
+          git config user.email "$COMMIT_EMAIL"
+
+          echo "Git author configured:"
+          git config user.name
+          git config user.email
+
+      - name: Generate daily engineering commits
+        env:
+          MIN_COMMITS: 5
+          MAX_COMMITS: 10
+          TZ: Asia/Beirut
+        run: |
+          bash engine/run_daily.sh
+
+      - name: Push commits
+        run: |
+          git push origin main
+
+      - name: Show generated commits
+        run: |
+          git log --oneline -15
