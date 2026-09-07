@@ -2,8 +2,8 @@
 
 set -euo pipefail
 
-MIN_COMMITS="${MIN_COMMITS:-5}"
-MAX_COMMITS="${MAX_COMMITS:-10}"
+MIN_COMMITS="${MIN_COMMITS:-50}"
+MAX_COMMITS="${MAX_COMMITS:-100}"
 
 if [ "$MIN_COMMITS" -gt "$MAX_COMMITS" ]; then
     echo "MIN_COMMITS cannot be greater than MAX_COMMITS"
