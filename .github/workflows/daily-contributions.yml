@@ -52,7 +52,7 @@ jobs:
       - name: Generate daily engineering commits
         env:
           MIN_COMMITS: 5
-          MAX_COMMITS: 10
+          MAX_COMMITS: 100
           TZ: Asia/Beirut
         run: |
           bash engine/run_daily.sh
